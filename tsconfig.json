@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "allowUnreachableCode": false,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "allowJs": true,
+    "skipLibCheck": false,
+    "lib": ["es2016", "es6", "es2015", "esnext", "dom", "dom.iterable", "scripthost"],
+    "moduleResolution": "node",
+    "module": "commonjs",
+    "target": "esnext",
+    "pretty": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "baseUrl": "./src",
+    "outDir": "./dist",
+    "typeRoots": ["types", "node_modules/@types"]
+  },
+  "exclude": ["**/node_modules"]
+}
