@@ -24,7 +24,7 @@ describe('yourls', () => {
   describe('Unlucky path', () => {
     let yourls: Yourls;
     beforeEach(() => {
-      yourls = new Yourls( '','');
+      yourls = new Yourls('', '');
     });
     it('should return error on shourtUrl', async () => {
       const result = await yourls.generateUrl('www.google.es');
