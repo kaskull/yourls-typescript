@@ -13,18 +13,26 @@ describe('yourls', () => {
         .toContainEntry(['statusCode', 200]);
     });
     it('should expandUrl', async () => {
-        const short = await yourls.generateUrl('www.google.es');
-        const result = await yourls.expandUrl(short && short.shorturl || '');
-        expect(result)
-          .toBeDefined()
-          .toContainKey('longurl')
-          .toContainEntry(['statusCode', 200]);
-      });
+      const short = await yourls.generateUrl('www.google.es');
+      const result = await yourls.expandUrl((short && short.shorturl) || '');
+      expect(result)
+        .toBeDefined()
+        .toContainKey('longurl')
+        .toContainEntry(['statusCode', 200]);
+    });
   });
-  xdescribe('Unlucky path', () => {
-    it('should shortUrl', () => {
-      console.log(process.env.API_KEY);
-      expect(1).toBe(1);
+  describe('Unlucky path', () => {
+    let yourls: Yourls;
+    beforeEach(() => {
+      yourls = new Yourls( '','');
+    });
+    it('should return error on shourtUrl', async () => {
+      const result = await yourls.generateUrl('www.google.es');
+      expect(result).toBeUndefined();
+    });
+    it('should return error on expandUrl', async () => {
+      const result = await yourls.expandUrl('');
+      expect(result).toBeUndefined();
     });
   });
 });
